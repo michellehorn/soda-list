@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="container d-flex">
-      <div class="col-md-6 col-lg-6 col-sm-12 card m-1 p-2 pt-4 bg-light">
+    <div class="container form-inline">
+      <div class="col-md-6 col-lg-6 col-sm-12 card p-2 pt-4 bg-light half-card">
         <h4 class="text-dark font-weight-bold">Shopping List</h4>
         <div class="p-2 pt-4">
           <div class="form-inline">
@@ -15,7 +15,7 @@
               </select>
             </div>
             <div class="col-3">
-              <h4 class="text-dark font-weight-bolder">R$ {{ itemSelected.valor }}</h4>
+              <h4 class="text-dark font-weight-bolder item-value">R$ {{ itemSelected.valor }}</h4>
             </div>
             <div class="ml-auto">
               <h6 class="text-danger" v-show="itemSelected.comprado">Vendido</h6>
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-6 col-sm-12 card m-1 p-2 pt-4">
+      <div class="col-md-6 col-lg-6 col-sm-12 card p-2 pt-4 half-card">
         <h4 class="text-dark font-weight-bold">Total</h4>
         <div class="form-inline">
           <div class="col-md-6 col-sm-12 col-lg-6 p-2">
@@ -65,9 +65,6 @@ export default {
     itemsList: [],
     allBrandQuantity: [],
     itemSelected: String,
-    newItem: {
-      marca: ''
-    }
   }),
   mounted() {
     this.getData();
@@ -85,7 +82,6 @@ export default {
           this.soldValue = this.soldValue + this.itemsList[i].valor;
         }
       }
-      console.log(this.itemsList);
     }
   }
 };
